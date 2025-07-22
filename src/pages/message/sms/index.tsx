@@ -20,32 +20,27 @@ const Sms: React.FC = () => {
       title: intl.formatMessage({id: 'pages.common.id'}),
       dataIndex: 'id',
       valueType: 'text',
-      width: 50,
     },
     {
       title: intl.formatMessage({id: 'pages.common.email'}),
       dataIndex: 'email',
       copyable: true,
-      width: 200
     },
     {
       title: intl.formatMessage({id: 'pages.common.type'}),
       dataIndex: 'type',
       valueType: 'select',
-      width: 150,
       request: async () => getOptionList("Message_Type"),
     },
     {
       title: intl.formatMessage({id: 'pages.common.captcha'}),
       dataIndex: 'code',
       valueType: 'text',
-      width: 100,
       hideInSearch: true,
     },
     {
       title: intl.formatMessage({id: 'pages.email.subject'}),
       dataIndex: 'subject',
-      width: 150,
       ellipsis: true,
     },
     {
@@ -62,7 +57,6 @@ const Sms: React.FC = () => {
     {
       title: intl.formatMessage({id: 'pages.email.content'}),
       dataIndex: 'body',
-      width: 80,
       hideInTable: true,
     },
 
