@@ -1,5 +1,3 @@
-
-
 export default {
   //公共
   'pages.common.new': 'New',
@@ -22,6 +20,10 @@ export default {
   'pages.common.used': 'Used',
   'pages.common.unusable': 'Unusable',
   'pages.common.preview': 'Preview',
+  'pages.common.enabled': 'Enabled',
+  'pages.common.disabled': 'Disabled',
+  'pages.common.yes': 'Yes',
+  'pages.common.no': 'No',
   // 关闭
   'pages.common.close': 'Close',
 
@@ -38,8 +40,12 @@ export default {
   'pages.sys.resource.menu.icon': 'Icon',
   'pages.sys.resource.menu.path': 'Path',
   'pages.sys.resource.menu.parent': 'Parent',
-  'pages.sys.resource.name':'Resource',
-  'pages.sys.resource.required':'Resource cannot be empty',
+  'pages.sys.resource.name': 'Resource',
+  //叶子节点
+  'pages.sys.resource.leaf': 'Leaf Node',
+  //如果是叶子节点，会默认添加权限子节点
+  'pages.sys.resource.leaf.tooltip': 'If it is a leaf node, it will automatically add permission child nodes',
+  'pages.sys.resource.required': 'Resource cannot be empty',
   //授权
   'pages.sys.auth.role.resource': 'Authorization',
   // 确定删除
