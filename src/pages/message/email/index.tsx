@@ -5,6 +5,9 @@ import {request, useIntl, history} from "@umijs/max";
 import {Button, message, Popconfirm, Tag} from "antd";
 import {useAccess} from "@@/exports";
 import Model from "@/components/Model";
+import {getOptionList} from "@/services/sys/DictController";
+import {deleteEmailInfo, getEmailList} from "@/services/msg/EmailController";
+import {EmailSearchParams} from "@/services/entity/Msg";
 
 /**
  *
@@ -35,10 +38,7 @@ const Email: React.FC = () => {
       dataIndex: 'type',
       valueType: 'select',
       width: 150,
-      request: async () => {
-        const {data} = await request('/api/chat/system/sys-dict/options', {params: {parentCode: 'Message_Type'}});
-        return data;
-      },
+      request: async () => getOptionList("Message_Type"),
     },
     {
       title: intl.formatMessage({id: 'pages.common.captcha'}),
@@ -86,10 +86,7 @@ const Email: React.FC = () => {
           key={'delete'}
           title={intl.formatMessage({id: 'pages.confirm.delete'})}
           onConfirm={async () => {
-            const {code, message: msg} = await request('/api/chat/system/msg/email/delete', {
-              method: 'GET',
-              params: {id: record.id}
-            });
+            const {code, message: msg} = await deleteEmailInfo(record);
             if (code === 200) {
               message.success(msg)
             } else {
@@ -112,7 +109,7 @@ const Email: React.FC = () => {
         actionRef={ref}
         rowKey={'user'}
         columns={columns}
-        request={async (params) => request('/api/chat/system/msg/email/list', {method: 'POST', data: params})}
+        request={async (params:EmailSearchParams) => getEmailList(params)}
       />
     </PageContainer>
   );

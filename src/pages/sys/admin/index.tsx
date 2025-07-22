@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 
 import {ActionType, PageContainer, ProTable} from "@ant-design/pro-components";
-import {history, useIntl} from "@umijs/max";
+import {history, request, useIntl} from "@umijs/max";
 import {Button, Image, message, Popconfirm} from "antd";
 import AdminForm from "@/pages/sys/admin/AdminForm";
 import {useAccess} from "@@/exports";
@@ -10,7 +10,6 @@ import {deleteAdminInfo, getAdminList, getRoleOptions} from "@/services/sys/Admi
 import {AdminSearchParams} from "@/services/entity/Sys";
 import {PlusOutlined} from "@ant-design/icons";
 import {FormattedMessage} from "@@/plugin-locale";
-
 const Admin: React.FC = () => {
   const intl = useIntl()
   const [open, setOpen] = useState(false);
@@ -55,7 +54,7 @@ const Admin: React.FC = () => {
       title: intl.formatMessage({id: 'pages.common.type'}),
       dataIndex: 'type',
       valueType: 'select',
-      request: async () => getOptionList("System_Role"),
+      request: async () =>getOptionList("System_Role"),
       key: 'type',
     },
     {
@@ -110,7 +109,7 @@ const Admin: React.FC = () => {
       <ProTable
         actionRef={ref}
         rowKey={'user'}
-        toolBarRender={() => write && [
+        toolBarRender={() => write&&[
           <Button
             key="button"
             icon={<PlusOutlined/>}

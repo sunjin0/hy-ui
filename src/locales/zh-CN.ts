@@ -23,7 +23,7 @@ export default {
   'pages.common.avatar': '头像',
   'pages.common.gender': '性别',
   'pages.common.password': '密码',
-  'pages.common.used': '已使用',
+  'pages.common.used':'已使用',
   'pages.common.unusable': '不可用',
   'pages.common.preview': '预览',
   'pages.common.enabled': '可用',
@@ -38,12 +38,12 @@ export default {
   'pages.sys.resource.menu.icon': '图标',
   'pages.sys.resource.menu.path': '路径',
   'pages.sys.resource.menu.parent': '父项',
-  'pages.sys.resource.name': '资源',
+  'pages.sys.resource.name':'资源',
   //叶子节点
-  'pages.sys.resource.leaf': '叶子节点',
+  'pages.sys.resource.leaf':'叶子节点',
   //如果是叶子节点，会默认添加权限子节点
   'pages.sys.resource.leaf.tooltip': '如果是叶子节点，会默认添加权限子节点',
-  'pages.sys.resource.required': '资源不能为空',
+  'pages.sys.resource.required':'资源不能为空',
   //授权
   'pages.sys.auth.role.resource': '授权',
 

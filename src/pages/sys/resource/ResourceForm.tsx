@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import DrawerForm from "@/components/DrawerForm";
-import {useIntl} from "@umijs/max";
-import {Form} from "antd";
-import {ProFormRadio, ProFormSelect, ProFormText, ProFormTextArea} from "@ant-design/pro-components";
+import {request, useIntl} from "@umijs/max";
+import {Form, message} from "antd";
+import {ProFormRadio,ProFormSelect, ProFormText, ProFormTextArea} from "@ant-design/pro-components";
 import {ProFormDependency} from "@ant-design/pro-form";
 import {
   addResourceInfo,
@@ -11,6 +11,7 @@ import {
   updateResourceInfo
 } from "@/services/sys/ResourceController";
 import {ResourceSearchParams} from "@/services/entity/Sys";
+import {getOptionList} from "@/services/sys/DictController";
 
 const ResourceForm = (props: {
   id: any;
@@ -26,7 +27,7 @@ const ResourceForm = (props: {
     <DrawerForm
       readonly={readOnly}
       id={id}
-      request={async (params: ResourceSearchParams) => {
+      request={async (params:ResourceSearchParams) => {
         const res = await getResourceInfo(params);
         if (res.data.type !== 'Resource_Type_Route') {
           setReadOnly(true)
@@ -43,10 +44,9 @@ const ResourceForm = (props: {
         }
       }}
       onSuccess={async (values: any) => {
-        values.type = "Resource_Type_Route";
-        if (id) {
+        if (id){
           await updateResourceInfo(values);
-        } else {
+        }else{
           await addResourceInfo(values);
         }
         onSuccess();
@@ -99,14 +99,13 @@ const ResourceForm = (props: {
             value: false
           }
         ]}></ProFormRadio.Group>
-      <ProFormDependency name={['type']}>
-        {({type}) => {
-          const b = type === 'Resource_Type_Route';
+      <ProFormDependency name={['leaf']}>
+        {({leaf}) => {
           return <ProFormText
             name="path"
             label={intl.formatMessage({id: 'pages.sys.resource.menu.path'})}
-            required={b}
-            rules={[{required: b}]}
+            required={leaf}
+            rules={[{required: leaf}]}
           />
         }}
       </ProFormDependency>

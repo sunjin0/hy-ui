@@ -2,7 +2,7 @@ import {request} from "@umijs/max";
 import {ResponseStructure} from "@/services/entity/Common";
 /**
  * 查询参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  */
 export interface MemberSearchParams extends Member {
     current: number;
@@ -10,7 +10,7 @@ export interface MemberSearchParams extends Member {
 }
 /**
  * 实体
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  */
 export interface Member {
             name : string;
@@ -23,7 +23,7 @@ export interface Member {
 /**
  * 分页查询
  * @param params 查询参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  * @returns 查询结果
  */
 export const getMemberList = async (params: MemberSearchParams): Promise<ResponseStructure<Member[]>> => {
@@ -35,7 +35,7 @@ export const getMemberList = async (params: MemberSearchParams): Promise<Respons
 /**
  * 查询信息
  * @param params 查询参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  * @returns 查询结果
  */
 export const getMemberInfo = async (params: MemberSearchParams): Promise<ResponseStructure<Member>> => {
@@ -49,7 +49,7 @@ export const getMemberInfo = async (params: MemberSearchParams): Promise<Respons
 /**
  * 新增信息
  * @param params 新增参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  * @returns 新增结果
  */
 export const addMemberInfo = async (params: Member) => {
@@ -61,7 +61,7 @@ export const addMemberInfo = async (params: Member) => {
 /**
  * 修改信息
  * @param params 修改参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  * @returns 修改结果
  */
 export const updateMemberInfo = async (params: Member) => {
@@ -73,7 +73,7 @@ export const updateMemberInfo = async (params: Member) => {
 /**
  * 删除信息
  * @param params 删除参数
- * @since 2025-07-22 11:46:15
+ * @since 2025-07-22 16:00:39
  * @returns 删除结果
  */
 export const deleteMemberInfo = async (params: { id: any }) => {

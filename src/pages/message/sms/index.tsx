@@ -5,6 +5,9 @@ import {request, useIntl, history} from "@umijs/max";
 import {Button, message, Popconfirm, Tag} from "antd";
 import {useAccess} from "@@/exports";
 import Model from "@/components/Model";
+import {getOptionList} from "@/services/sys/DictController";
+import {deleteSmsInfo, getSmsList} from "@/services/msg/SmsController";
+import {SmsSearchParams} from "@/services/entity/Msg";
 
 const Sms: React.FC = () => {
   const intl = useIntl()
@@ -30,10 +33,7 @@ const Sms: React.FC = () => {
       dataIndex: 'type',
       valueType: 'select',
       width: 150,
-      request: async () => {
-        const {data} = await request('/api/chat/system/sys-dict/options', {params: {parentCode: 'Message_Type'}});
-        return data;
-      },
+      request: async () => getOptionList("Message_Type"),
     },
     {
       title: intl.formatMessage({id: 'pages.common.captcha'}),
@@ -81,10 +81,7 @@ const Sms: React.FC = () => {
           key={'delete'}
           title={intl.formatMessage({id: 'pages.confirm.delete'})}
           onConfirm={async () => {
-            const {code, message: msg} = await request('/api/chat/system/msg/sms/delete', {
-              method: 'GET',
-              params: {id: record.id}
-            });
+            const {code, message: msg} = await deleteSmsInfo(record);
             if (code === 200) {
               message.success(msg)
             } else {
@@ -107,7 +104,7 @@ const Sms: React.FC = () => {
         actionRef={ref}
         rowKey={'user'}
         columns={columns}
-        request={async (params) => request('/api/chat/system/msg/sms/list', {method: 'POST', data: params})}
+        request={async (params:SmsSearchParams) => getSmsList(params)}
       />
     </PageContainer>
   );
