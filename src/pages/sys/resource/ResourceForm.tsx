@@ -44,6 +44,7 @@ const ResourceForm = (props: {
         }
       }}
       onSuccess={async (values: any) => {
+        values.type = 'Resource_Type_Route'
         if (id){
           await updateResourceInfo(values);
         }else{

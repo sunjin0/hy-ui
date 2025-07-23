@@ -68,7 +68,7 @@ export default [
       name: 'user',
         routes: [
             {
-              path: './user/member',
+              path: '/user/member',
               name: 'Member',
               component: './user/Member',
             },

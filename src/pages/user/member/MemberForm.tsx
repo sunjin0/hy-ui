@@ -6,7 +6,7 @@ import {getMemberInfo,addMemberInfo,updateMemberInfo} from "@/services/user/Memb
 /**
  *
  *@description 表单
- *@since 2025-07-22 16:00:39
+ *@since 2025-07-23 10:27:59
  */
 const MemberForm = (props: {
   id: any;
@@ -39,16 +39,6 @@ const MemberForm = (props: {
         hidden={true}
       />
         <ProFormText
-          name={'name'}
-          label={'名称'}
-          required
-          rules={[
-            {
-              required: true,
-            }
-          ]}
-        />
-        <ProFormText
           name={'username'}
           label={'用户名'}
           required
@@ -69,8 +59,8 @@ const MemberForm = (props: {
           ]}
         />
         <ProFormText
-          name={'phone'}
-          label={'电话'}
+          name={'nickname'}
+          label={'昵称'}
           required
           rules={[
             {
@@ -80,7 +70,7 @@ const MemberForm = (props: {
         />
         <ProFormText
           name={'email'}
-          label={'邮件'}
+          label={'邮箱'}
           required
           rules={[
             {
@@ -89,8 +79,8 @@ const MemberForm = (props: {
           ]}
         />
         <ProFormText
-          name={'avatar'}
-          label={'头像'}
+          name={'phone'}
+          label={'手机号'}
           required
           rules={[
             {
