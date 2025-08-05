@@ -7,7 +7,7 @@ import RoleForm from "@/pages/sys/role/RoleForm";
 import {PlusOutlined} from "@ant-design/icons";
 import {FormattedMessage, history, useAccess} from "@@/exports";
 import AuthorizationForm from "@/pages/sys/role/AuthorizationForm";
-import {deleteRoleInfo, getRoleList} from "@/services/sys/roleController";
+import {deleteRoleInfo, getRoleList} from "@/services/sys/RoleController";
 import {RoleSearchParams} from "@/services/entity/Sys";
 
 const Role: React.FC = () => {

@@ -63,16 +63,16 @@ export default [
     layout: false,
     component: './404',
   },
-  {
-    path: '/user',
-    name: 'user',
-    routes: [
-      {
-        path: '/user/member',
-        name: 'Member',
-        component: './user/member',
-      },
-    ]
-  },
+    {
+      path: '/user',
+      name: 'user',
+        routes: [
+            {
+              path: '/user/member',
+              name: 'Member',
+              component: './user/member',
+            },
+        ]
+    },
 
 ]
