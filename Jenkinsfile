@@ -18,15 +18,13 @@ pipeline {
         stage('Build Production') {
             steps {
                 sh 'npm run build'
-                 // 存档构建产物
-                 archiveArtifacts artifacts: 'build/**', fingerprint: true
             }
         }
 
         stage('Deploy to Nginx') {
             steps {
                 sh 'echo "部署到 Nginx 服务器..."'
-                sh 'cp -r build/* /var/www/html'
+                sh 'cp -r dist/* /var/www/html'
                 sh 'echo "部署完成"'
             }
         }
