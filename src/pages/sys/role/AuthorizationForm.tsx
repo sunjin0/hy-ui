@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import DrawerForm from "@/components/DrawerForm";
 import {Form, message, Tree} from "antd";
 import {useIntl} from "@umijs/max";
-import {getResourceList, getRoleAuthorization, saveRoleAuthorization} from "@/services/sys/roleController";
+import {getResourceList, getRoleAuthorization, saveRoleAuthorization} from "@/services/sys/RoleController";
 
 
 const removeParentSelected = (resources: Array<any>, checkedResources: Array<string>,

@@ -3,7 +3,7 @@ import DrawerForm from "@/components/DrawerForm";
 import {request, useIntl} from "@umijs/max";
 import {Form} from "antd";
 import {ProFormText, ProFormTextArea} from "@ant-design/pro-components";
-import {addRoleInfo, getRoleInfo, updateRoleInfo} from "@/services/sys/roleController";
+import {addRoleInfo, getRoleInfo, updateRoleInfo} from "@/services/sys/RoleController";
 import {RoleSearchParams} from "@/services/entity/Sys";
 
 const RoleForm = (props: {

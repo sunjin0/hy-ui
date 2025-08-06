@@ -70,7 +70,7 @@ export default [
             {
               path: '/user/member',
               name: 'Member',
-              component: './user/Member',
+              component: './user/member',
             },
         ]
     },
