@@ -24,7 +24,8 @@ pipeline {
         stage('Deploy to Nginx') {
             steps {
                 sh 'echo "部署到 Nginx 服务器..."'
-                sh 'cp -r dist/* /var/www/html'
+                sh 'mkdir /var/www/html/hy_ui'
+                sh 'cp -r dist/* /var/www/html/hy_ui'
                 sh 'echo "部署完成"'
             }
         }
