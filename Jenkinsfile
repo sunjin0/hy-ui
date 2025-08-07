@@ -12,9 +12,11 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // 设置github处理中状态
-                script {
-                     githubNotify context: 'CI/CD Pipeline', status: 'PENDING', description: 'Build is in progress'
-                 }
+                script{
+                step([$class: 'GitHubCommitStatusSetter',
+                                      contextSource: [$class: 'ManuallyEnteredCommitContextSource', context: 'jenkins-ci'],
+                                      statusResultSource: [$class: 'ConditionalStatusResultSource', results: [[$class: 'AnyBuildResult', message: '处理中...', state: 'PENDING']]]])
+                }
                 sh 'npm install --prefer-offline'
             }
         }
@@ -28,6 +30,7 @@ pipeline {
         stage('Deploy to Nginx') {
             steps {
                 sh 'echo "部署到 Nginx 服务器..."'
+                sh 'sudo mkdir /var/www/html/hy_ui'
                 sh 'cp -r dist/* /var/www/html/hy_ui'
                 sh 'echo "部署完成"'
             }
